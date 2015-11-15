@@ -1,0 +1,6 @@
+/cookbooks/
+/berks-cookbooks/
+.gitignore~
+Berksfile~
+Berksfile.lock
+.chef/knife.rb~
