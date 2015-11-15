@@ -4,3 +4,4 @@
 Berksfile~
 Berksfile.lock
 .chef/knife.rb~
+.chef/knife.rb
