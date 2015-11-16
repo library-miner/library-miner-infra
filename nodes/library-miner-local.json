@@ -1,6 +1,6 @@
 {
   "run_list":[
-    "recipe[base-git]",
+    "recipe[git]",
     "recipe[server-init]",
     "recipe[java]"
   ],
