@@ -22,3 +22,18 @@ end
 
 # Agent Install
 package "zabbix-agent"
+
+# Install configuration
+template '/etc/zabbix/zabbix_agentd.conf' do
+  source 'zabbix_agentd.conf.erb'
+  owner 'root'
+  group 'root'
+  mode '644'
+  #notifies :restart, 'service[zabbix_agentd]'
+end
+
+# zabbix-agentの自動起動設定と起動
+service "zabbix-agent" do
+  supports :status => true, :restart => true
+  action   [:enable, :start]
+end
