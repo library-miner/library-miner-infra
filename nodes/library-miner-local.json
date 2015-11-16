@@ -4,7 +4,8 @@
     "recipe[server-init]",
     "recipe[java]",
     "recipe[mysql::server]",
-    "recipe[rvm]"
+    "recipe[rvm]",
+    "recipe[zabbix]"
   ],
   "server-init":{
     "user" : "chato",
