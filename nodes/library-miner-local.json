@@ -2,7 +2,8 @@
   "run_list":[
     "recipe[git]",
     "recipe[server-init]",
-    "recipe[java]"
+    "recipe[java]",
+    "recipe[mysql::server]"
   ],
   "server-init":{
     "user" : "chato",
@@ -14,5 +15,10 @@
     "oracle": {
       "accept_oracle_download_terms": true
     }
+  },
+  "mysql":{
+    "port":"3306",
+    "server_root_password":"root"
   }
+
 }
