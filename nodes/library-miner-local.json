@@ -3,7 +3,8 @@
     "recipe[git]",
     "recipe[server-init]",
     "recipe[java]",
-    "recipe[mysql::server]"
+    "recipe[mysql::server]",
+    "recipe[rvm]"
   ],
   "server-init":{
     "user" : "chato",
