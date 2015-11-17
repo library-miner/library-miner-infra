@@ -5,6 +5,7 @@
     "recipe[java]",
     "recipe[mysql::server]",
     "recipe[rvm]",
+    "recipe[nginx]",
     "recipe[zabbix]"
   ],
   "server-init":{
