@@ -1,8 +1,8 @@
-user <%= @params[:user] %>;
+user <%= @user %>;
 worker_processes 1;
 
 pid /var/run/nginx.pid;
-error_log <%= @params[:log_dir] %>/error.log;
+error_log <%= @log_dir %>/error.log;
 
 events {
   worker_connections  1024;
@@ -11,7 +11,7 @@ events {
 http {
   include mime.types;
   default_type application/octet-stream;
-  access_log  <%= @params[:log_dir] %>/access.log;
+  access_log  <%= @log_dir %>/access.log;
   sendfile on;
   keepalive_timeout  65;
 
@@ -22,5 +22,5 @@ http {
   gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
 
   # virtual Hosts
-  include <%= @params[:install_dir] %>/sites-enabled/*;
+  include <%= @install_dir %>/sites-enabled/*;
 }
