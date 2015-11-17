@@ -6,7 +6,8 @@
     "recipe[mysql::server]",
     "recipe[rvm]",
     "recipe[nginx]",
-    "recipe[zabbix]"
+    "recipe[zabbix]",
+    "recipe[zabbix::server]"
   ],
   "server-init":{
     "user" : "chato",

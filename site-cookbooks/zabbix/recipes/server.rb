@@ -13,9 +13,7 @@
   zabbix-web-mysql
   zabbix-web-japanese
 ].each do |p|
-  package p do
-    version "#{node['zabbix']['server']['version']}-1.el6"
-  end
+  package p
 end
 
 # Install php-fpm to execute PHP code from nginx
@@ -34,11 +32,11 @@ template '/etc/zabbix/zabbix_server.conf' do
     :dbuser     => node['zabbix']['server']['mysql']['dbuser'],
     :dbpassword => node['zabbix']['server']['mysql']['dbpassword']
   )
-  notifies :restart, 'service[zabbix_server]'
+  notifies :restart, 'service[zabbix-server]', :delayed
 end
 
-# zabbix-agentの自動起動設定と起動
-service "zabbix-agent" do
+# zabbix-serverの自動起動設定と起動
+service "zabbix-server" do
   supports :status => true, :restart => true
-  action :restart
+  action [:enable, :start]
 end
