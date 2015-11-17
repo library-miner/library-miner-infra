@@ -69,22 +69,11 @@ template 'nginx.conf' do
 	owner  'root'
 	group  'root'
 	mode   '0644'
-	notifies :reload, 'service[nginx]'
-end
-
-template "#{node['nginx']['dir']}/sites-available/rails_app" do
-	source 'rails_site.erb'
-	owner  'root'
-	group  'root'
-	mode   '0644'
-	notifies :reload, 'service[nginx]'
-end
-
-#simbol link
-link "#{node['nginx']['dir']}/sites-enabled/rails_app" do
-	not_if "test -L /#{node['nginx']['dir']}/sites-enabled/rails_app" 
-	to "/#{node['nginx']['dir']}/sites-available/rails_app"
-	link_type :symbolic
+  variables(
+    :user => node['nginx']['user'],
+    :install_dir => node['nginx']['dir'],
+    :log_dir => node['nginx']['log_dir']
+  )
 	notifies :reload, 'service[nginx]'
 end
 
