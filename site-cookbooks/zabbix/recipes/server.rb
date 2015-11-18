@@ -10,8 +10,7 @@
 # Server Install
 %w[
   zabbix-server-mysql
-  zabbix-web-mysql
-  zabbix-web-japanese
+  zabbix-frontend-php
 ].each do |p|
   package p
 end
