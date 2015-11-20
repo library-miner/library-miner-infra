@@ -39,3 +39,31 @@ service "zabbix-server" do
   supports :status => true, :restart => true
   action [:enable, :start]
 end
+
+
+# nginx の設定
+template "/etc/nginx/sites-available/zabbix" do
+	source 'zabbix_nginx.erb'
+	owner  'root'
+	group  'root'
+	mode   '0754'
+  variables(
+    :server_name => node['zabbix']['web']['fqdn'],
+    :php_settings => node['zabbix']['web']['php']['settings'],
+    :web_port => node['zabbix']['web']['port'],
+    :web_dir => node['zabbix']['web_dir'],
+    :fastcgi_listen => node['zabbix']['web']['php']['fastcgi_listen']
+  )
+
+	notifies :reload, 'service[nginx]'
+end
+
+#simbol link
+link "/etc/nginx/sites-enabled/zabbix" do
+	not_if "test -L /etc/nginx/sites-enabled/zabbix"
+	to "/etc/nginx/sites-available/zabbix"
+	link_type :symbolic
+	notifies :reload, 'service[nginx]'
+end
+
+
