@@ -81,3 +81,27 @@ template "/etc/php5/fpm/pool.d/www.conf" do
 
   notifies :restart, resources(:service => "php5-fpm"), :immediately
 end
+
+
+# -- mysql データベース作成 初期データ投入 --
+
+# 実行完了用判定Directory
+directory "/root/chef_install" do
+	owner "root"
+	group "root"
+	mode 00744
+	action :create
+end
+
+#root_password = node['zabbix']['server']['mysql']['root_dbpassword']
+# create db
+#bash "create zabbix db" do
+#  not_if { File.exists?("/root/chef_install/zabbix_db_create")}
+#  user "root"
+#  code <<-EOS
+#    mysql -u root -p#{root_password}
+#    create database zabbix character set utf8 collate utf8_bin;
+#    exit;
+#    touch /root/chef_install/zabbix_db_create
+#  EOS
+#end

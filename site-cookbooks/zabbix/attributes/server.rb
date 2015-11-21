@@ -6,6 +6,9 @@ default['zabbix']['server']['mysql']['dbname'] = 'zabbix'
 default['zabbix']['server']['mysql']['dbuser'] = 'zabbix'
 default['zabbix']['server']['mysql']['dbpassword'] = nil
 
+# mysql root パスワードを変更した場合は 設定必須
+default['zabbix']['server']['mysql']['root_dbpassword'] = 'root'
+
 default['zabbix']['web_dir'] = '/usr/share/zabbix'
 default['zabbix']['web']['login'] = 'admin'
 default['zabbix']['web']['password'] = 'zabbix'
