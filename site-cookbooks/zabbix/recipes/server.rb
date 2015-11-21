@@ -93,15 +93,14 @@ directory "/root/chef_install" do
 	action :create
 end
 
-#root_password = node['zabbix']['server']['mysql']['root_dbpassword']
+root_password = node['mysql']['server_root_password']
 # create db
-#bash "create zabbix db" do
-#  not_if { File.exists?("/root/chef_install/zabbix_db_create")}
-#  user "root"
-#  code <<-EOS
-#    mysql -u root -p#{root_password}
-#    create database zabbix character set utf8 collate utf8_bin;
-#    exit;
-#    touch /root/chef_install/zabbix_db_create
-#  EOS
-#end
+bash "create zabbix db" do
+  not_if { File.exists?("/root/chef_install/zabbix_db_create")}
+  user "root"
+  code <<-EOS
+    mysql -u root -p#{root_password} -e \
+    "create database zabbix character set utf8 collate utf8_bin;"
+    touch /root/chef_install/zabbix_db_create
+  EOS
+end
