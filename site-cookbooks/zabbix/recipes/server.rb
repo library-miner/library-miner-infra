@@ -15,8 +15,10 @@
   package p
 end
 
+
 # Install php-fpm to execute PHP code from nginx
 package 'php5-fpm'
+package 'php5-mysql'
 
 service "php5-fpm" do
   action    [:enable, :start]
