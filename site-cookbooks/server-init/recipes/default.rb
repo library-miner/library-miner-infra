@@ -10,6 +10,9 @@ HOME = '/home/' + USER
 # install zsh
 package 'zsh'
 
+# install vim
+package 'vim'
+
 group GROUP do
 	group_name GROUP
 	action [:create]
