@@ -18,6 +18,10 @@ end
 # Install php-fpm to execute PHP code from nginx
 package 'php5-fpm'
 
+service "php5-fpm" do
+  action    [:enable, :start]
+  supports  [:start, :restart, :reload, :stop]
+end
 
 # Zabbix Server Setting
 template '/etc/zabbix/zabbix_server.conf' do
@@ -66,4 +70,12 @@ link "/etc/nginx/sites-enabled/zabbix" do
 	notifies :reload, 'service[nginx]'
 end
 
+# PHP設定
+template "/etc/php5/fpm/pool.d/www.conf" do
+  source 'www.conf.erb'
+  owner 'root'
+  group 'root'
+  mode '0666'
 
+  notifies :restart, resources(:service => "php5-fpm"), :immediately
+end
