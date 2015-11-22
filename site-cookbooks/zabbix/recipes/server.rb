@@ -111,9 +111,9 @@ bash "create zabbix db user" do
   user "root"
   code <<-EOS
     mysql -u root -p#{root_password} -e \
-    "create user zabbix;" \
-    "grant all on zabbix.* to zabbix@localhost;" \
-    "flush privilegdes;"
+    "create user zabbix; \
+    grant all on zabbix.* to zabbix@localhost; \
+    flush privilegdes;"
     touch /root/chef_install/zabbix_db_user_create
   EOS
 end
