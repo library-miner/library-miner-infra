@@ -1,5 +1,6 @@
 {
   "run_list":[
+    "recipe[ntp]",
     "recipe[git]",
     "recipe[server-init]",
     "recipe[java]",
@@ -9,6 +10,9 @@
     "recipe[zabbix]",
     "recipe[zabbix::server]"
   ],
+  "ntp": {
+    "servers": ["ntp.nict.jp", "ntp.jst.mfeed.ad.jp"]
+  },
   "server-init":{
     "user" : "chato",
     "group" : "staff"
