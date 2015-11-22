@@ -104,3 +104,29 @@ bash "create zabbix db" do
     touch /root/chef_install/zabbix_db_create
   EOS
 end
+
+# create user
+bash "create zabbix db user" do
+  not_if { File.exists?("/root/chef_install/zabbix_db_user_create")}
+  user "root"
+  code <<-EOS
+    mysql -u root -p#{root_password} -e \
+    "create user zabbix;" \
+    "grant all on zabbix.* to zabbix@localhost;" \
+    "flush privilegdes;"
+    touch /root/chef_install/zabbix_db_user_create
+  EOS
+end
+
+# create zabbix db schema
+bash "create zabbix db schema" do
+  not_if { File.exists?("/root/chef_install/zabbix_db_schema_create")}
+  user "root"
+  code <<-EOS
+    gunzip /usr/share/zabbix-server-mysql/*.gz
+    mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/schema.sql
+    mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/image.sql
+    mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/data.sql
+    touch /root/chef_install/zabbix_db_schema_create
+  EOS
+end
