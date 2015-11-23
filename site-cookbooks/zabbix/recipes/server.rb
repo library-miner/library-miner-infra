@@ -41,11 +41,10 @@ template '/etc/zabbix/zabbix_server.conf' do
 end
 
 # zabbix-serverの自動起動設定と起動
-service "zabbix-server" do
-  supports :status => true, :restart => true
-  action [:enable, :start]
+service 'zabbix-server' do
+  supports :status => true, :start => true, :stop => true, :restart => true
+  action [:start, :enable]
 end
-
 
 # nginx の設定
 template "/etc/nginx/sites-available/zabbix" do
@@ -125,7 +124,7 @@ bash "create zabbix db schema" do
   code <<-EOS
     gunzip /usr/share/zabbix-server-mysql/*.gz
     mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/schema.sql
-    mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/image.sql
+    mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/images.sql
     mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/data.sql
     touch /root/chef_install/zabbix_db_schema_create
   EOS
