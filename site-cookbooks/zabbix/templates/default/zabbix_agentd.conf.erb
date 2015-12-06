@@ -1,12 +1,15 @@
 Hostname=<%= node['zabbix']['agent']['hostname'] %>
-Include='/etc/zabbix/agent_include'
-Server=[]
+Include='/etc/zabbix/zabbix_agentd.conf.d/'
+Server=<%= node['zabbix']['agent']['server_ip'] %>
+ServerActive=<%= node['zabbix']['agent']['server_ip'] %>
 <% if node['zabbix']['agent']['log_file'] -%>
 LogFile=<%= node['zabbix']['agent']['log_file'] %>
 <% end -%>
 <% if node['zabbix']['agent']['debug_level'] -%>
 DebugLevel=<%= node['zabbix']['agent']['debug_level'] %>
 <% end -%>
+
+PidFile=/var/run/zabbix/zabbix_agentd.pid
 EnableRemoteCommands=1
 LogRemoteCommands=1
 ListenPort=10050
