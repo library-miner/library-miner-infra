@@ -1,6 +1,18 @@
 # server
 # default['zabbix']['server']['version'] = '2.2.3'
 
+
+default['zabbix']['server']['log_file'] ='/var/log/zabbix-server/zabbix_server.log'
+default['zabbix']['server']['log_level']              = 3
+default['zabbix']['server']['housekeeping_frequency'] = '1'
+default['zabbix']['server']['max_housekeeper_delete'] = '100000'
+
+default['zabbix']['server']['timeout'] = '3'
+default['zabbix']['server']['value_cache_size'] = '8M' # default 8MB
+default['zabbix']['server']['cache_size'] = '8M' # default 8MB
+
+
+
 default['zabbix']['server']['mysql']['dbhost'] = 'localhost'
 default['zabbix']['server']['mysql']['dbname'] = 'zabbix'
 default['zabbix']['server']['mysql']['dbuser'] = 'zabbix'

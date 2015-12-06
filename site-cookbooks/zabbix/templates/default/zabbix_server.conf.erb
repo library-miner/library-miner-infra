@@ -1,4 +1,19 @@
+<% if node['zabbix']['server']['log_file'] -%>
+  LogFile=<%= node['zabbix']['server']['log_file'] %>
+<% end -%>
+
 DBHost=<%= @dbhost %>
 DBName=<%= @dbname %>
 DBUser=<%= @dbuser %>
 DBPassword=<%= @dbpassword %>
+
+
+DebugLevel=<%= node['zabbix']['server']['log_level'] %>
+PidFile=/var/run/zabbix/zabbix_server.pid
+
+HousekeepingFrequency=<%= node['zabbix']['server']['housekeeping_frequency']%>
+MaxHousekeeperDelete=<%= node['zabbix']['server']['max_housekeeper_delete'] %>
+
+Timeout=<%= node['zabbix']['server']['timeout']%>
+ValueCacheSize=<%= node['zabbix']['server']['value_cache_size'] %>
+CacheSize=<%= node['zabbix']['server']['cache_size'] %>

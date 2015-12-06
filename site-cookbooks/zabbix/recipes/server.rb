@@ -26,6 +26,13 @@ service "php5-fpm" do
 end
 
 # Zabbix Server Setting
+template '/etc/default/zabbix-server' do
+  source 'zabbix_server_default.erb'
+  owner 'root'
+  group 'root'
+  mode '644'
+end
+
 template '/etc/zabbix/zabbix_server.conf' do
   source 'zabbix_server.conf.erb'
   owner 'root'
