@@ -49,3 +49,11 @@ git HOME + "/plugin/auto-fu.zsh" do
 	action :checkout
 end
 
+# locale
+bash 'locale-gen' do
+    code 'locale-gen ja_JP.UTF-8'
+end
+
+bash 'update-locale' do
+    code 'update-locale --reset LANG=ja_JP.UTF-8'
+end
