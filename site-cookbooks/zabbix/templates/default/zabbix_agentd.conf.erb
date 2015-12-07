@@ -1,5 +1,5 @@
 Hostname=<%= node['zabbix']['agent']['hostname'] %>
-Include='/etc/zabbix/zabbix_agentd.conf.d/'
+Include=/etc/zabbix/zabbix_agentd.conf.d/
 Server=<%= node['zabbix']['agent']['server_ip'] %>
 ServerActive=<%= node['zabbix']['agent']['server_ip'] %>
 <% if node['zabbix']['agent']['log_file'] -%>
