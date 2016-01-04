@@ -92,7 +92,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  berkshelf
+  berkshelf (~> 4.0)
 
 BUNDLED WITH
    1.11.2
