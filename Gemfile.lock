@@ -53,7 +53,7 @@ GEM
       mixlib-log
     mixlib-log (1.6.0)
     multipart-post (2.0.0)
-    nio4r (1.1.1)
+    nio4r (1.2.0)
     octokit (3.8.0)
       sawyer (~> 0.6.0, >= 0.5.3)
     retryable (2.0.3)
@@ -95,4 +95,4 @@ DEPENDENCIES
   berkshelf
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

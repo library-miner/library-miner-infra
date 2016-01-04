@@ -1,0 +1,31 @@
+{
+  "run_list":[
+    "recipe[ntp]",
+    "recipe[git]",
+    "recipe[server-init]",
+    "recipe[java]",
+    "recipe[mysql::server]",
+    "recipe[rvm]",
+    "recipe[nginx]",
+    "recipe[zabbix]"
+  ],
+  "ntp": {
+    "servers": ["ntp.nict.jp", "ntp.jst.mfeed.ad.jp"]
+  },
+  "server-init":{
+    "user" : "chato",
+    "group" : "staff"
+  },
+  "java": {
+    "install_flavor": "oracle",
+    "jdk_version": 7,
+    "oracle": {
+      "accept_oracle_download_terms": true
+    }
+  },
+  "mysql":{
+    "port":"3306",
+    "server_root_password":"root"
+  }
+
+}
