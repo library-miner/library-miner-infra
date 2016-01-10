@@ -16,6 +16,7 @@ end
 user USER do
 	shell '/bin/zsh'
 	home '/home/' + USER
+  group 'miner'
 	password nil
 	supports :manage_home => true, :non_unique => false
 	action   [:create]
@@ -47,8 +48,8 @@ end
 
 # ssh key
 directory HOME + "/.ssh" do
-  owner user
-  group group
+  owner USER
+  group GROUP
   mode 0700
   action :create
   only_if "test -d #{HOME}"
