@@ -72,3 +72,4 @@ template ".ssh/config" do
 end
 
 package 'libmysqlclient-dev'
+package 'npm'

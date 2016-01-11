@@ -12,3 +12,4 @@ directory "/var/www/" do
 	mode 00764
 	action :create
 end
+
