@@ -71,3 +71,4 @@ template ".ssh/config" do
   mode 00600
 end
 
+package 'libmysqlclient-dev'
