@@ -16,3 +16,22 @@ end
 bash 'npm bower' do
   code 'sudo npm install bower -g'
 end
+
+# nginx
+template "#{node['nginx']['dir']}/sites-available/default" do
+	source 'rails_site.erb'
+	owner  'root'
+	group  'root'
+	mode   '0644'
+	notifies :reload, 'service[nginx]'
+end
+
+#simbol link
+link "#{node['nginx']['dir']}/sites-enabled/default" do
+	not_if "test -L /#{node['nginx']['dir']}/sites-enabled/default"
+	to "/#{node['nginx']['dir']}/sites-available/default"
+	link_type :symbolic
+	notifies :reload, 'service[nginx]'
+end
+
+
