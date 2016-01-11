@@ -9,7 +9,7 @@ GROUP = node["common"]["deploy_group"]
 directory "/var/www/" do
 	owner USER
 	group GROUP
-	mode 00764
+	mode 00777
 	action :create
 end
 

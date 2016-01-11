@@ -3,4 +3,4 @@ default['common']['deploy_group'] = 'miner'
 
 default['nginx']['dir'] = '/etc/nginx'
 default['nginx']['port'] = 80
-default['nginx']['application'] = 'miner'
+default['nginx']['application'] = 'library_miner'
