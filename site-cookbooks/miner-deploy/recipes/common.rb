@@ -73,3 +73,8 @@ end
 
 package 'libmysqlclient-dev'
 package 'npm'
+package 'nodejs'
+
+link "/usr/bin/node" do
+  to "/usr/bin/nodejs"
+end

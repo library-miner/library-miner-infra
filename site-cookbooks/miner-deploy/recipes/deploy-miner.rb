@@ -13,3 +13,6 @@ directory "/var/www/" do
 	action :create
 end
 
+bash 'npm bower' do
+  code 'sudo npm install bower -g'
+end
