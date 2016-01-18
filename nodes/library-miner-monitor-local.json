@@ -8,7 +8,8 @@
     "recipe[rvm]",
     "recipe[nginx]",
     "recipe[zabbix]",
-    "recipe[zabbix::server]"
+    "recipe[zabbix::server]",
+    "recipe[zabbix::skype]"
   ],
   "ntp": {
     "servers": ["ntp.nict.jp", "ntp.jst.mfeed.ad.jp"]
