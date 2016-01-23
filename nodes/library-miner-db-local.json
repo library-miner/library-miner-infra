@@ -8,6 +8,7 @@
     "recipe[rvm]",
     "recipe[nginx]",
     "recipe[zabbix]",
+    "recipe[zabbix::mysql-client-monitor]",
     "recipe[miner-deploy::default]"
   ],
   "ntp": {
@@ -27,6 +28,11 @@
   "mysql":{
     "port":"3306",
     "server_root_password":"root"
+  },
+  "zabbix":{
+    "agent":{
+      "server_ip": "192.168.33.20"
+    }
   }
 
 }
