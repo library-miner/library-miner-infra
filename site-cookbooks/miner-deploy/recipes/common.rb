@@ -75,6 +75,14 @@ package 'libmysqlclient-dev'
 package 'npm'
 package 'nodejs'
 
+bash 'bundler' do
+  code <<-EOS
+    source /root/.bashrc
+    gem install bundler
+  EOS
+end
+
+
 link "/usr/bin/node" do
   to "/usr/bin/nodejs"
 end

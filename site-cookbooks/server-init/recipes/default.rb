@@ -34,6 +34,14 @@ template ".zshrc" do
 	mode 00744
 end
 
+template ".bashrc" do
+  path "/root/.bashrc"
+  source "root-bashrc.erb"
+  owner "root"
+  group "root"
+  mode 00744
+end
+
 directory HOME + "/plugin/" do
 	owner USER
 	group GROUP
