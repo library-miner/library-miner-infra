@@ -29,6 +29,10 @@
   "mysql":{
     "port":"3306",
     "server_root_password":"root"
+  },
+  "zabbix":{
+    "agent":{
+      "hostname": "133.130.126.111"
+    }
   }
-
 }
