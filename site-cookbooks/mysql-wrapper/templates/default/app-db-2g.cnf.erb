@@ -1,0 +1,13 @@
+[mysqld]
+# InnoDBのデータやインデックスをキャッシュするメモリ領域
+innodb_buffer_pool_size = 768M
+
+# InnoDBの内部データなどを保持するための領域
+innodb_additional_mem_pool_size = 20M
+
+# InnoDBの更新ログを記録するメモリ領域
+innodb_log_buffer_size = 16  # 通常時:8程度
+
+# InnoDBの更新ログを記録するディスク上のファイル
+innodb_log_file_size = 64M
+
