@@ -4,7 +4,7 @@
     "recipe[git]",
     "recipe[server-init]",
     "recipe[java]",
-    "recipe[mysql::server]",
+    "recipe[mysql-wrapper::default]",
     "recipe[rvm]",
     "recipe[nginx]",
     "recipe[zabbix]",
@@ -25,10 +25,6 @@
     "oracle": {
       "accept_oracle_download_terms": true
     }
-  },
-  "mysql":{
-    "port":"3306",
-    "server_root_password":"root"
   }
 
 }
