@@ -13,7 +13,7 @@ default['zabbix']['server']['cache_size'] = '8M' # default 8MB
 
 
 
-default['zabbix']['server']['mysql']['dbhost'] = 'localhost'
+default['zabbix']['server']['mysql']['dbhost'] = '127.0.0.1'
 default['zabbix']['server']['mysql']['dbname'] = 'zabbix'
 default['zabbix']['server']['mysql']['dbuser'] = 'zabbix'
 default['zabbix']['server']['mysql']['dbpassword'] = nil
