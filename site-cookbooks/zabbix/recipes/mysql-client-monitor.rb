@@ -54,7 +54,7 @@ bash "create zabbix db user" do
   not_if { File.exists?("/root/chef_install/zabbix_mysql_monitor_user_create")}
   user "root"
   code <<-EOS
-    mysql -u root -p#{root_password} -e \
+    mysql -h 127.0.0.1 -u root -p#{root_password} -e \
     "create user zabbix; \
     grant all on zabbix.* to zabbix@localhost; \
     flush privilegdes;"
