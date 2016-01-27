@@ -99,7 +99,10 @@ directory "/root/chef_install" do
 	action :create
 end
 
-root_password = node['mysql']['server_root_password']
+# 後から入れる場合は注意
+#root_password = node['mysql']['server_root_password']
+root_password = 'root'
+
 # create db
 bash "create zabbix db" do
   not_if { File.exists?("/root/chef_install/zabbix_db_create")}
