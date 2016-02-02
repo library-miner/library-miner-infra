@@ -4,12 +4,10 @@
     "recipe[git]",
     "recipe[server-init]",
     "recipe[java]",
-    "recipe[mysql-wrapper::app-db-2g]",
+    "recipe[mysql-client]",
     "recipe[rvm]",
-    "recipe[nginx]",
     "recipe[zabbix]",
-    "recipe[zabbix::mysql-client-monitor]",
-    "recipe[miner-deploy::default]"
+    "recipe[miner-deploy::crawler]"
   ],
   "ntp": {
     "servers": ["ntp.nict.jp", "ntp.jst.mfeed.ad.jp"]
@@ -27,7 +25,7 @@
   },
   "zabbix":{
     "agent":{
-      "hostname": "133.130.96.240",
+      "hostname": "133.130.101.225",
       "server_ip": "133.130.116.79"
     }
   }
