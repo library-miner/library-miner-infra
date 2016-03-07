@@ -1,6 +1,6 @@
 source "https://supermarket.chef.io"
 
 cookbook 'git'
-cookbook 'mysql',"~> 5.3.6"
+cookbook 'mysql',"~> 6.1.2"
 cookbook 'java'
 cookbook 'ntp'

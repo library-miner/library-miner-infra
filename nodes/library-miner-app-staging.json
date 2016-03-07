@@ -4,12 +4,9 @@
     "recipe[git]",
     "recipe[server-init]",
     "recipe[java]",
-    "recipe[mysql-wrapper::default]",
+    "recipe[mysql-client]",
     "recipe[rvm]",
-    "recipe[nginx]",
     "recipe[zabbix]",
-    "recipe[zabbix::server]",
-    "recipe[zabbix::skype]",
     "recipe[miner-deploy::crawler]"
   ],
   "ntp": {
@@ -24,6 +21,11 @@
     "jdk_version": 7,
     "oracle": {
       "accept_oracle_download_terms": true
+    }
+  },
+  "zabbix":{
+    "agent":{
+      "server_ip": "192.168.0.101"
     }
   }
 

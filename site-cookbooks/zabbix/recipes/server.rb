@@ -99,13 +99,16 @@ directory "/root/chef_install" do
 	action :create
 end
 
-root_password = node['mysql']['server_root_password']
+# 後から入れる場合は注意
+#root_password = node['mysql']['server_root_password']
+root_password = 'root'
+
 # create db
 bash "create zabbix db" do
   not_if { File.exists?("/root/chef_install/zabbix_db_create")}
   user "root"
   code <<-EOS
-    mysql -u root -p#{root_password} -e \
+    mysql -h 127.0.0.1 -u root -p#{root_password} -e \
     "create database zabbix character set utf8 collate utf8_bin;"
     touch /root/chef_install/zabbix_db_create
   EOS
@@ -116,7 +119,7 @@ bash "create zabbix db user" do
   not_if { File.exists?("/root/chef_install/zabbix_db_user_create")}
   user "root"
   code <<-EOS
-    mysql -u root -p#{root_password} -e \
+    mysql -h 127.0.0.1 -u root -p#{root_password} -e \
     "create user zabbix; \
     grant all on zabbix.* to zabbix@localhost; \
     flush privilegdes;"
@@ -130,9 +133,9 @@ bash "create zabbix db schema" do
   user "root"
   code <<-EOS
     gunzip /usr/share/zabbix-server-mysql/*.gz
-    mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/schema.sql
-    mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/images.sql
-    mysql -u zabbix zabbix < /usr/share/zabbix-server-mysql/data.sql
+    mysql -h 127.0.0.1 -u zabbix zabbix < /usr/share/zabbix-server-mysql/schema.sql
+    mysql -h 127.0.0.1 -u zabbix zabbix < /usr/share/zabbix-server-mysql/images.sql
+    mysql -h 127.0.0.1 -u zabbix zabbix < /usr/share/zabbix-server-mysql/data.sql
     touch /root/chef_install/zabbix_db_schema_create
   EOS
 end
