@@ -26,8 +26,8 @@ bash "rvm install" do
 	curl -L https://get.rvm.io | bash -s stable --ruby
 	source /etc/profile.d/rvm.sh
 	echo "source /etc/profile.d/rvm.sh" >> /root/.bashrc
-  rvm install ruby-2.2.0
-  rvm --default use ruby-2.2.0
+  rvm install ruby-2.2.3
+  rvm --default use ruby-2.2.3
 	touch /root/chef_install/rvm
 	EOS
 end
