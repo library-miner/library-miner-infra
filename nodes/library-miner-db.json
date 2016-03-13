@@ -6,10 +6,9 @@
     "recipe[java]",
     "recipe[mysql-wrapper::app-db-2g]",
     "recipe[rvm]",
-    "recipe[nginx]",
     "recipe[zabbix]",
     "recipe[zabbix::mysql-client-monitor]",
-    "recipe[miner-deploy::default]"
+    "recipe[miner-deploy::crawler]"
   ],
   "ntp": {
     "servers": ["ntp.nict.jp", "ntp.jst.mfeed.ad.jp"]
