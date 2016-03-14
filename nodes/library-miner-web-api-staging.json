@@ -1,0 +1,39 @@
+{
+  "run_list":[
+    "recipe[ntp]",
+    "recipe[git]",
+    "recipe[server-init]",
+    "recipe[java]",
+    "recipe[mysql-client]",
+    "recipe[rvm]",
+    "recipe[nginx]",
+    "recipe[zabbix]",
+    "recipe[miner-deploy::default]"
+  ],
+  "ntp": {
+    "servers": ["ntp.nict.jp", "ntp.jst.mfeed.ad.jp"]
+  },
+  "server-init":{
+    "user" : "chato",
+    "group" : "staff"
+  },
+  "java": {
+    "install_flavor": "oracle",
+    "jdk_version": 7,
+    "oracle": {
+      "accept_oracle_download_terms": true
+    }
+  },
+  "zabbix":{
+    "agent":{
+      "server_ip": "192.168.0.101"
+    }
+  },
+  "miner-deploy":{
+    "nginx":{
+      "allow_access_ip": "127.0.0.1",
+      "port": "8080",
+      "application": "library-miner-web-api"
+    }
+  }
+}
