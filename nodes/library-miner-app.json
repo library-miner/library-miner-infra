@@ -6,8 +6,9 @@
     "recipe[java]",
     "recipe[mysql-client]",
     "recipe[rvm]",
+    "recipe[nginx]",
     "recipe[zabbix]",
-    "recipe[miner-deploy::crawler]"
+    "recipe[miner-deploy::default]"
   ],
   "ntp": {
     "servers": ["ntp.nict.jp", "ntp.jst.mfeed.ad.jp"]
@@ -28,6 +29,10 @@
       "hostname": "133.130.101.225",
       "server_ip": "133.130.116.79"
     }
+  },
+  "miner-deploy":{
+    "nginx":{
+      "allow_access_ip": "127.0.0.1"
+    }
   }
-
 }
