@@ -29,11 +29,9 @@
       "server_ip": "192.168.0.101"
     }
   },
-  "miner-deploy":{
-    "nginx":{
-      "allow_access_ip": "127.0.0.1",
-      "port": "8080",
-      "application": "library-miner-web-api"
-    }
+  "nginx":{
+    "allow_access_ip": "127.0.0.1",
+    "port": "8080",
+    "application": "library-miner-web-api"
   }
 }

@@ -12,7 +12,7 @@ server {
   rewrite_log on;
 
   satisfy any;
-  allow 192.168.0.100;
+  allow <%= node['nginx']['allow_access_ip'] %>;
   deny all;
 
   auth_basic           "miner management page";
