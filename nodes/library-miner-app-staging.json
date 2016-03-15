@@ -30,6 +30,6 @@
     }
   },
   "nginx":{
-    "allow_access_ip": "192.168.0.100"
+    "allow_access_ip": "192.168.0.103"
   }
 }
