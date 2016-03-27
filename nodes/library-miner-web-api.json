@@ -31,10 +31,9 @@
     }
   },
   "nginx":{
-    "allow_access_ip": "127.0.0.1",
-    "port": "8080",
     "application": "library-miner-web-api",
-    "port2": "80",
-    "application2": "library-miner-frontyard"
+    "server_name": "api.lminer.net",
+    "application2": "library-miner-frontyard",
+    "server_name2": "lminer.net"
   }
 }

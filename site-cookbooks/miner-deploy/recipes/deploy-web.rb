@@ -4,6 +4,6 @@
 #
 
 include_recipe 'miner-deploy::common'
-include_recipe 'miner-deploy::deploy-miner'
+include_recipe 'miner-deploy::deploy-miner-web-api'
 include_recipe 'miner-deploy::common-library'
 include_recipe 'miner-deploy::deploy-web-frontyard'
