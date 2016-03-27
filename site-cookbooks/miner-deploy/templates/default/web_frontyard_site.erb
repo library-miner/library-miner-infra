@@ -1,0 +1,14 @@
+server {
+  listen <%= node['nginx']['port2'] %>;
+  server_name <%= node['nginx']['server_name2'] %>;
+
+  root /var/www/<%= node['nginx']['application2'] %>;
+  access_log /var/log/nginx/<%= node['nginx']['application2'] %>_log;
+  error_log /var/log/nginx/<%= node['nginx']['application2'] %>_error_log;
+  rewrite_log on;
+
+  location / {
+    include /etc/nginx/mine.types;
+    try_files $uri /index.html?$query_string;
+  }
+}

@@ -4,19 +4,12 @@ upstream unicorn_rails_proxy {
 
 server {
   listen <%= node['nginx']['port'] %>;
-  server_name _;
+  server_name <%= node['nginx']['server_name'] %>;
 
   root /var/www/<%= node['nginx']['application'] %>/current;
   access_log /var/log/nginx/<%= node['nginx']['application'] %>_log;
   error_log /var/log/nginx/<%= node['nginx']['application'] %>_error_log;
   rewrite_log on;
-
-  satisfy any;
-  allow <%= node['nginx']['allow_access_ip'] %>;
-  deny all;
-
-  auth_basic           "miner management page";
-  auth_basic_user_file /etc/nginx/conf.d/.htpasswd;
 
   location / {
     proxy_pass  http://unicorn_rails_proxy;
