@@ -26,11 +26,13 @@
   },
   "zabbix":{
     "agent":{
-      "hostname": "133.130.101.225",
+      "hostname": "163.44.167.111",
       "server_ip": "133.130.116.79"
     }
   },
   "nginx":{
-    "allow_access_ip": "163.44.167.111"
+    "allow_access_ip": "127.0.0.1",
+    "port": "8080",
+    "application": "library-miner-web-api"
   }
 }
