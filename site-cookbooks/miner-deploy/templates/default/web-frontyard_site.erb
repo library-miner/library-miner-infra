@@ -1,0 +1,17 @@
+upstream unicorn_rails_proxy {
+  server unix:/tmp/unicorn_<%= node['nginx']['application2'] %>.sock fail_timeout=0;
+}
+
+server {
+  listen <%= node['nginx']['port2'] %>;
+  server_name _;
+
+  root /var/www/<%= node['nginx']['application2'] %>/current;
+  access_log /var/log/nginx/<%= node['nginx']['application2'] %>_log;
+  error_log /var/log/nginx/<%= node['nginx']['application2'] %>_error_log;
+  rewrite_log on;
+
+  location / {
+    root /var/www/<%= node['nginx']['application2'] %>/index.html;
+  }
+}

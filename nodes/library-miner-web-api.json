@@ -8,7 +8,7 @@
     "recipe[rvm]",
     "recipe[nginx]",
     "recipe[zabbix]",
-    "recipe[miner-deploy::default]"
+    "recipe[miner-deploy::deploy-web]"
   ],
   "ntp": {
     "servers": ["ntp.nict.jp", "ntp.jst.mfeed.ad.jp"]
@@ -33,6 +33,8 @@
   "nginx":{
     "allow_access_ip": "127.0.0.1",
     "port": "8080",
-    "application": "library-miner-web-api"
+    "application": "library-miner-web-api",
+    "port2": "80",
+    "application2": "library-miner-frontyard"
   }
 }
