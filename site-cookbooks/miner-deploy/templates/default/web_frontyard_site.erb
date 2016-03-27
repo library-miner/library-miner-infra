@@ -8,6 +8,7 @@ server {
   rewrite_log on;
 
   location / {
-    root /var/www/<%= node['nginx']['application2'] %>;
+    include /etc/nginx/mine.types;
+    try_files $uri /index.html?$query_string;
   }
 }

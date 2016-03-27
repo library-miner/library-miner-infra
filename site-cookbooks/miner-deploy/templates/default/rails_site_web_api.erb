@@ -4,7 +4,7 @@ upstream unicorn_rails_proxy {
 
 server {
   listen <%= node['nginx']['port'] %>;
-  server_name <%= node['nginx']['server_name'];
+  server_name <%= node['nginx']['server_name'] %>;
 
   root /var/www/<%= node['nginx']['application'] %>/current;
   access_log /var/log/nginx/<%= node['nginx']['application'] %>_log;
